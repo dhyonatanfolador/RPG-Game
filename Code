@@ -1,0 +1,269 @@
+programa 
+{
+  inclua biblioteca Util --> U
+
+//VARIAVEIS GLOBAIS
+caracter arma
+cadeia enter
+
+  funcao inicio() 
+  {
+    //CODIGO
+    limpa()
+    escreva("======================================\n")
+    escreva("AGUARDE O JOGO ESTA INICIANDO. . . \n")
+    escreva("======================================\n")
+    U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+    comeco()  /*ENVIA PARA COMECO*/
+  }
+  funcao comeco()
+  {
+    //VARIAVEIS DA FUNCAO
+    caracter opcao
+
+    //CODIGO
+    limpa()
+    escreva("===================================\n")
+    escreva("            MENU INICIAL           \n")
+    escreva("===================================\n")   
+    escreva("1 - COMECAR A JOGAR\n")
+    escreva("2 - FECHAR JOGO\n")  
+    escreva("===================================\n")
+    escreva("Opcao: ")
+    leia (opcao)
+
+    escolha (opcao)
+    {
+      caso '1':
+      {
+        iniciar()  /*ENVIA PARA O INICIO*/
+        pare
+      }
+      caso '2':
+      {
+        fechar()  /*FECHA O JOGO*/
+        pare
+      }
+    }
+  }
+  funcao iniciar()
+  {
+    //CODIGO
+    limpa()
+    escreva("===================================\n")
+    escreva("OLA JOGADOR\n")
+    escreva("PARA INICIA SUA JORNADA ENCOLHA ENTRE AS SEGUINTES ARMAS\n")
+    escreva("===================================\n")
+    escreva("1- MARRETA, 2 - ESCUDO, 3 - ESPADA\n")
+    escreva("===================================\n")
+    escreva("Opcao: ")
+    leia(arma)
+
+    escolha (arma)
+    {
+      caso '1':
+      {
+        caminho()  /*ENVIA PARA O CAMINHO QUE IRA SEGUIR*/
+        pare
+      }
+      caso '2':
+      {
+        caminho()  /*ENVIA PARA O CAMINHO QUE IRA SEGUIR*/
+        pare
+      }
+      caso '3':
+      {
+        caminho()  /*ENVIA PARA O CAMINHO QUE IRA SEGUIR*/
+        pare
+      }
+      caso contrario:
+      {
+        limpa()
+        escreva("=============!ATENCAO!=============\n")
+        escreva("          OPCAO INVALIDA!          \n")
+        escreva("===================================\n")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        iniciar()  /*ENVIA PARA O INICIO*/
+      }
+    }
+  }
+  funcao caminho()
+  {
+    //VARIAVEIS DA FUNCAO
+    caracter opcao
+    
+    //CODIGO
+    limpa()
+    escreva("===================================\n")
+    escreva("AGORA QUE ESCOLHEU SUA ARMA\n")
+    escreva("VOCE SE DEPARA COM UMA ENCRUZILHADA NO INICIO DE SUA JORNADA\n")
+    escreva("===================================\n")
+    escreva("QUAL CAMINHO GOSTARIA DE SEGUIR?\n")
+    escreva("1 - ESQUERDA, 2 - EM FRENTE, 3 - DIREITA\n")
+    escreva("===================================\n")
+    escreva("Opcao: ")
+    leia(opcao)
+
+    escolha (opcao)
+    {
+      caso '1':
+      {
+        limpa()
+        escreva("===================================\n")
+        escreva("VOCE SE DEPARA COM UM ENORME DRAGAO\n")
+        escreva("INDEPENDENTE DE SUA ARMA VOCE MORRE\n")
+        escreva("===================================\n")
+        leia(enter)
+        limpa()
+        escreva("!GAME OVER!")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        comeco()  /*ENVIA PARA O COMECO*/
+        pare
+      }
+      caso '2':
+      {
+        limpa()
+        escreva("===================================\n")
+        escreva("VOCE SE DEPARA COM OGRO            \n")
+        escreva("SUA ESCOLHA ANTERIOR IMPACTA SE VOCE IRA GANHAR OU PERDER ESSA LUTA\n")
+        escreva("===================================\n")
+        se (arma == '1')
+        {
+          escreva("VOCE QUEBRA A ESPADA DO OGRO E MATA ELE\n")
+          escreva("===================================\n")
+          leia(enter)
+          limpa()
+          escreva("!YOU WIN!")
+          U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+          comeco()  /*ENVIA PARA O COMECO*/
+        }
+        se (arma == '2')
+        {
+          escreva("ELE QUEBRA SEU ESCUDO E VOCE MORRE\n")
+          escreva("===================================\n")
+          leia(enter)
+          limpa()
+          escreva("!GAME OVER!")
+          U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+          comeco()  /*ENVIA PARA O COMECO*/
+        }
+        se (arma == '3')
+        {
+          escreva("VOCE TEM UMA LUTA DIFICIL COM O OGRO E O ATINGE MORTALMENTE\n")
+          escreva("ONDE VOCE ESCAPA DO OGRO E FICA A SALVO DOS PERIGOS DO MUNDO\n")
+          escreva("===================================\n")
+          leia(enter)
+          limpa()
+          escreva("!YOU WIN!")
+          U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+          comeco()  /*ENVIA PARA O COMECO*/
+        }
+        pare
+      }
+      caso '3':
+      {
+        ladrao()  /*ENVIA PARA A FUNCAO LADRAO*/
+        pare
+      }
+      caso contrario:
+      {
+        limpa()
+        escreva("=============!ATENCAO!=============\n")
+        escreva("          OPCAO INVALIDA!          \n")
+        escreva("===================================\n")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        caminho()  /*ENVIA PARA O CAMINHO*/
+        pare
+      }
+    }
+
+  }
+  funcao ladrao()
+  {
+    //VARIAVEIS DA FUNCAO
+    caracter opcao
+
+    //CODIGO
+    limpa()
+    escreva("===================================\n")
+    escreva("VOCE SE DEPARA COM UM SUJEITO ESTRANHO\n")
+    escreva("O QUE IRA FAZER?\n")
+    escreva("===================================\n")
+    escreva("1 - LUTAR, 2 - CONVERSAR\n")
+    escreva("===================================\n")
+    escreva("Opcao: ")
+    leia(opcao)
+
+    escolha (opcao)
+    {
+      caso '1':
+      {
+        limpa()
+        escreva("===================================\n")
+        escreva("VOCE MATA O SUJEITO E ACABA DESCOBRINDO QUE ELE ERA UM LADRAO\n")
+        escreva("VOCE CONTINUA SUA JORNADA NORMALMENTE\n")
+        escreva("===================================\n")
+        leia(enter)
+        limpa()
+        escreva("!YOU WIN!")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        comeco()  /*ENVIA PARA O COMECO*/
+        pare
+      }
+      caso '2':
+      {
+        limpa()
+        escreva("===================================\n")
+        escreva("ELE ERA UM LADRAO E ROUBA TODOS OS SEUS ITENS\n")
+        escreva("===================================\n")
+        leia(enter)
+        limpa()
+        escreva("!GAME OVER!")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        comeco()
+        pare
+      }
+      caso contrario:
+      {
+        limpa()
+        escreva("=============!ATENCAO!=============\n")
+        escreva("          OPCAO INVALIDA!          \n")
+        escreva("===================================\n")
+        U.aguarde(2000)  /*AGUARDA 2 SEGUNDOS*/
+        ladrao()  /*ENVIA PARA A FUNCAO LADRAO*/
+        pare
+      }
+    }
+  }
+  funcao fechar()
+  {
+    	limpa()
+     escreva("Finalizando o jogo em 05 segundos. . .")
+     U.aguarde(1000)  /*AGUARDA 1 SEGUNDOS*/
+     limpa()
+     escreva("Finalizando o jogo em 04 segundos. . .")
+     U.aguarde(1000)  /*AGUARDA 1 SEGUNDOS*/
+     limpa()
+     escreva("Finalizando o jogo em 03 segundos. . .")
+     U.aguarde(1000)  /*AGUARDA 1 SEGUNDOS*/
+     limpa()
+     escreva("Finalizando o jogo em 02 segundos. . .")
+     U.aguarde(1000)  /*AGUARDA 1 SEGUNDOS*/
+     limpa()
+     escreva("Finalizando o jogo em 01 segundos. . .")
+     U.aguarde(1000)  /*AGUARDA 1 SEGUNDOS*/
+     escreva("\n\n\n\n\n\n")
+  }
+}
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 7193; 
+ * @DOBRAMENTO-CODIGO = [8, 18, 48, 89, 180, 237];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
